@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <main>
+        <h1>Knight's Travails</h1>
+    
+        <form id="moveForm">
+            <label>Start (x, y):
+                <input type="text" id="startInput" placeholder="e.g., 0,0" required />
+            </label>
+            <label>End (x, y):
+                <input type="text" id="endInput" placeholder="e.g., 7,7" required />
+            </label>
+            <button type="submit">Find Path</button>
+        </form>
+    
+        <div id="board" class="board"></div>
+        <pre id="result"></pre>
+    </main>
     
     <script type="module" src="ui.js"></script>
 </body>
