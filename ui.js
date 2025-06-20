@@ -17,3 +17,18 @@ function createBoard() {
         }
     }
 }
+
+function highlightPath(path) {
+    const squares = document.querySelectorAll('.square');
+    squares.forEach(sq => sq.classList.remove('highlight', 'start', 'end'));
+
+    path.forEach((pos, idx) => {
+        const selector = `.square[data-pos="${pos[0]},${pos[1]}"]`;
+        const square = document.querySelector(selector);
+        if (square) {
+            if (idx === 0) square.classList.add('start');
+            else if (idx === path.length - 1) square.classList.add('end');
+            else square.classList.add('highlight');
+        }
+    });
+}
