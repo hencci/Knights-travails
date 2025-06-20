@@ -32,3 +32,26 @@ function highlightPath(path) {
         }
     });
 }
+
+function parseInput(value) {
+    return value.split(',').map(Number);
+}
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const start = parseInput(startInput.value);
+    const end = parseInput(endInput.value);
+
+    const path = knightMoves(start, end);
+
+    if (!path) {
+        resultElement.textContent = "No valid path found.";
+        return;
+    }
+
+    resultElement.textContent = `You made it in ${path.length - 1} moves! Here's your path:\n` +
+    path.map(p => `[${p[0]},${p[1]}]`).join('\n');
+
+    highlightPath(path);
+});
